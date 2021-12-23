@@ -3,7 +3,9 @@ const axios = require('axios');
 const { config } = require('../../wdio.conf');
 
 class HomePage extends Page {
-   
+    /**
+     * define selectors using getter methods
+     */
     get inputLocation() {
         return $('[type="text"]');
     }
@@ -31,7 +33,9 @@ class HomePage extends Page {
     get btnToRent(){
         return $('div=To Rent');
     }
-
+     /**
+     * Select only the links under the "Dubai Apartments" section
+     */
     async popularLocations(){
         try {
             const dubaiAptsHREF = await $('div._6944f1d2 a').getAttribute('href');
@@ -50,8 +54,10 @@ class HomePage extends Page {
         }
     }
 
-
-    async search (purpose, location) {
+    /**
+     * Selects the buy option and adds the location to the search bar
+     */
+    async search (location) {
         await this.btnPurpose.click();
         await this.btnPurposeType.click();
         await this.inputLocation.setValue(location);
@@ -60,7 +66,9 @@ class HomePage extends Page {
         
     }
 
-
+    /**
+     * Selects the option "to Rent" for popular searches and then checks if all the links load correctly
+     */
     async popularSearch () {
         let statusList = []
         try {
