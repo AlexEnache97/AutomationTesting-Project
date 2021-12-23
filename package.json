@@ -15,5 +15,9 @@
     "@wdio/spec-reporter": "^7.16.11",
     "chromedriver": "^96.0.0",
     "wdio-chromedriver-service": "^7.2.2"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "chai": "^4.3.4"
   }
 }
